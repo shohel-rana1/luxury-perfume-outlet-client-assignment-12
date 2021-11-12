@@ -1,0 +1,10 @@
+.login-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.google-login{
+    background-color: #37474F;
+    border-radius: 10px;
+}

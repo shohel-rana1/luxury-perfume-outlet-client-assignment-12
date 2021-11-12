@@ -1,23 +1,52 @@
-import logo from './logo.svg';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import Home from './pages/Home/Home/Home';
+import Navigation from './pages/Shared/Navigation/Navigation';
+import Explore from './pages/Explore/Explore';
+import PrivateRoute from './pages/PrivateRoute/PrivateRoute';
+import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
+import Login from './pages/Login/Login';
+import Footer from './pages/Shared/Footer/Footer';
+import Register from './pages/Login/Register/Register';
+import AuthProvider from './Context/AuthProvider';
+import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AuthProvider>
+        <Router>
+          <Navigation></Navigation>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/home">
+              <Home />
+            </Route>
+            <Route path="/explore">
+              <Explore />
+            </Route>
+            <PrivateRoute path="/explore">
+              <Dashboard />
+            </PrivateRoute>
+            <PrivateRoute path="/placeorder/:perfumeid">
+              <PlaceOrder></PlaceOrder>
+            </PrivateRoute>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/register">
+              <Register />
+            </Route>
+          </Switch>
+          <Footer></Footer>
+        </Router>
+      </AuthProvider>
     </div>
   );
 }

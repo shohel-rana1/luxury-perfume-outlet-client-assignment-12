@@ -1,0 +1,38 @@
+.nav-bar{
+    display: flex; 
+    margin-left: 250px;
+    justify-content: center;
+    align-items: center;
+}
+.nav-text{
+    color: #C09E6C;
+    padding-top: 20px !important;
+    font-size: 18px;
+    padding-right: 25px;
+    font-weight: 500;
+    
+}
+.logo{
+    height: 60px;
+    width: 150px;
+}
+
+.userName{
+    color: #F58220 !important;
+    padding-top: 15px;
+    font-size: 18px;
+    font-weight: 500;
+}
+.logout-btn{
+    padding-top: 25px !important;
+    color: #C09E6C;
+    font-size: 18px;
+    font-weight: 500;
+}
+.logo-text{
+    padding-top: 25px !important;
+    color: #C09E6C;
+    font-size: 20px;
+    font-weight: 700;
+
+}

@@ -1,0 +1,24 @@
+.btn-bg{
+    background: #C09E6C;
+    transition: 0.3s;
+    color: white;
+}
+.btn-bg:hover{
+    background: #dbd0d0;
+    transform: scale(1.1);
+}
+.img-wrapper {  
+    overflow: hidden; 
+  }
+  
+  .inner-img {
+    transition: 0.3s;
+  }
+  
+  .inner-img:hover {
+    transform: scale(1.1);
+  }
+  .cardText{
+      color: #C09E6C;
+      text-align: left;
+  }
