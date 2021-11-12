@@ -1,15 +1,18 @@
 import { Button, Alert, Spinner } from 'react-bootstrap';
 import React, { useState } from 'react';
 import './Register.css'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Register = () => {
     const [loginData, setLoginData] = useState({});
 
-    const { user, registerUser, isLoading, authError } = useAuth() || {};
+    const { user, registerUser, isLoading, authError, signInWithGoogle } = useAuth() || {};
 
-    const handleOnChange = e => {
+    const location = useLocation();
+    const history = useHistory();
+
+    const handleonChange = e => {
         const field = e.target.name;
         const value = e.target.value;
         const newLoginData = { ...loginData };
@@ -22,18 +25,22 @@ const Register = () => {
             alert('Your password did not match');
             return
         }
-        registerUser(loginData.email, loginData.password);
+        registerUser(loginData.email, loginData.password, loginData.name, history);
         e.preventDefault();
+    }
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle(location, history);
     }
     return (
         <div className="backgrnd-img">
             <div className="container py-5 my-5">
                 <h2 className="text-muted pb-2">Register Here</h2>
-                <form onSubmit={handleLoginSubmit}>
+                {!isLoading && <form onSubmit={handleLoginSubmit}>
                     <input
                         placeholder="Your Name"
                         name="name"
-                        onChange={handleOnChange}
+                        onChange={handleonChange}
                     />
                     <br />
                     <br />
@@ -43,7 +50,7 @@ const Register = () => {
                         placeholder="Your Email"
                         name="email"
                         type="email"
-                        onChange={handleOnChange}
+                        onChange={handleonChange}
                     />
                     <br />
                     <br />
@@ -53,7 +60,7 @@ const Register = () => {
                         placeholder="Your Password"
                         type="password"
                         name="password"
-                        onChange={handleOnChange}
+                        onChange={handleonChange}
                     />
                     <br />
                     <br />
@@ -63,7 +70,7 @@ const Register = () => {
                         placeholder="Retype Your Password"
                         type="password"
                         name="password2"
-                        onChange={handleOnChange}
+                        onChange={handleonChange}
                     />
                     <br />
                     <br />
@@ -77,10 +84,12 @@ const Register = () => {
                     </NavLink>
                     <br />
                     <br />
-                </form>
+                </form>}
                 {isLoading && <Spinner animation="border" variant="success" />}
                 {user?.email && <Alert severity="success">User Created successfully!</Alert>}
                 {authError && <Alert severity="error">{authError}</Alert>}
+                <p>...........OR..........</p>
+                <Button onClick={handleGoogleSignIn} variant="success">Google SignIn</Button>
             </div>
         </div>
     );

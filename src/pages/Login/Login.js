@@ -6,12 +6,12 @@ import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
-    const { user, loginUser, isLoading, authError } = useAuth() || {};
+    const { user, loginUser, isLoading, authError, signInWithGoogle } = useAuth() || {};
 
     const location = useLocation();
     const history = useHistory();
 
-    const handleOnChange = e => {
+    const handleOnBlur = e => {
         const field = e.target.name;
         const value = e.target.value;
         const newLoginData = { ...loginData };
@@ -22,6 +22,10 @@ const Login = () => {
     const handleLoginSubmit = e => {
         loginUser(loginData.email, loginData.password, location, history);
         e.preventDefault();
+    }
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle(location, history);
     }
     return (
         <div className="backgrnd-img">
@@ -34,7 +38,7 @@ const Login = () => {
                         name="email"
                         autoComplete="on"
                         placeholder="Your Email"
-                        onChange={handleOnChange}
+                        onBlur={handleOnBlur}
                     />
                     <br />
                     <br />
@@ -44,7 +48,7 @@ const Login = () => {
                         type="password"
                         autoComplete="on"
                         name="password"
-                        onChange={handleOnChange}
+                        onBlur={handleOnBlur}
                     />
                     <br />
                     <br />
@@ -63,6 +67,8 @@ const Login = () => {
                     {user?.email && <Alert severity="success">Login successfully!</Alert>}
                     {authError && <Alert severity="error">{authError}</Alert>}
                 </form>
+                <p>...........OR..........</p>
+                <Button onClick={handleGoogleSignIn} variant="success">Google SignIn</Button>
             </div>
         </div>
     );
