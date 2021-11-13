@@ -1,10 +1,32 @@
 // import { Table } from 'react-bootstrap';
+import { useState } from 'react';
 import { Table } from 'react-bootstrap';
 import usePerfumes from '../../../hooks/usePerfumes';
 const SingleOrer = ({ item }) => {
     const [perfumes] = usePerfumes();
     const { address, city, phone, email, name, booking_id, status } = item;
+    console.log(booking_id)
     const myOrder = perfumes.find(perfume => perfume._id === booking_id);
+    //delete an user
+    const handleDelete = id => {
+        id = booking_id;
+        const proceed = window.confirm('Are you Sure to Delete?');
+        if (proceed) {
+            const url = `http://localhost:5000/orders/${booking_id}`;
+
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        alert('deleted successfully');
+                        // const remainnigs = orders.filter(order => order._id !== id);
+                        // setOrders(remainnigs);
+                    }
+                })
+        }
+    }
 
     return (
 
@@ -32,7 +54,7 @@ const SingleOrer = ({ item }) => {
                                 <td >{address} </td>
                                 <td >{phone} </td>
                                 <td >{status} </td>
-                                <td ><button>Delete</button></td>
+                                <td ><button onClick={ ()=>handleDelete(booking_id)}>Delete</button></td>
                             </tr>
                         </tbody>
                     </Table>

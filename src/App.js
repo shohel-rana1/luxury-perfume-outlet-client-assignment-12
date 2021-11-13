@@ -5,15 +5,16 @@ import {
   Route,
 } from "react-router-dom";
 import Home from './pages/Home/Home/Home';
-import Navigation from './pages/Shared/Navigation/Navigation';
+// import Navigation from './pages/Shared/Navigation/Navigation';
 import Explore from './pages/Explore/Explore';
 import PrivateRoute from './pages/PrivateRoute/PrivateRoute';
 import Login from './pages/Login/Login';
-import Footer from './pages/Shared/Footer/Footer';
+// import Footer from './pages/Shared/Footer/Footer';
 import Register from './pages/Login/Register/Register';
 import AuthProvider from './Context/AuthProvider';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
+import NotFound from './pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -42,6 +43,9 @@ function App() {
             </Route>
             <Route path="/register">
               <Register />
+            </Route>
+            <Route path="*">
+              <NotFound />
             </Route>
           </Switch>
           {/* <Footer></Footer> */}

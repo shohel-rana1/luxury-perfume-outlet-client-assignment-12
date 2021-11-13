@@ -6,8 +6,8 @@ const Footer = () => {
             <div className="bgColor px-5 py-4">
                 <div className="row g-5 mx-auto container">
                     <div className="text-left col-md-4">
-                        <h3>Amigos Holiday Charm</h3>
-                        <p>This is our tour planner website<br /> We have multi-disciplinary tertiary-care<br /> We provide best service to the clients<br /> of the top facilated travel site</p>
+                        <h3>Luxury Perfume Outlet</h3>
+                        <p>This is our ecommerce website<br /> We have multi-disciplinary tertiary-care<br /> We provide best service to the clients<br /> of the top facilated e-coomers site</p>
                     </div>
                     <div className="block icon-list text-left col-md-4">
                         <h3>Contact Us</h3>
@@ -27,7 +27,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="mx-auto bg-clr py-3">
-                <p><i className="far fa-copyright"></i>&nbsp;2021 Amigos holiday charm, LLC. All rights reserved.</p>
+                <p><i className="far fa-copyright"></i>&nbsp;2021 Luxury Perfume Outlet, LLC. All rights reserved.</p>
             </div>
         </>
     );

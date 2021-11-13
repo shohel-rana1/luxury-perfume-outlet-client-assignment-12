@@ -1,9 +1,9 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyBSZl64vrcsH28KnwOtPXAH2VC_yTaJ84w",
-    authDomain: "luxury-perfume-outlet.firebaseapp.com",
-    projectId: "luxury-perfume-outlet",
-    storageBucket: "luxury-perfume-outlet.appspot.com",
-    messagingSenderId: "386537466580",
-    appId: "1:386537466580:web:dc368409b97b6537d4a941"
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_APP_ID
 };
 export default firebaseConfig;

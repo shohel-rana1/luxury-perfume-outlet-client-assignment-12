@@ -1,9 +1,9 @@
 import React from 'react';
-
+import payment from '../../../images/PAYMENT-PAGE-DESIGN.png';
 const Payment = () => {
     return (
-        <div className="my-5">
-            <h2>Payment Sytem is Cooming soon</h2>
+        <div className="container mx-auto my-5">
+            <img src={payment} alt="" className="w-100" />
         </div>
     );
 };

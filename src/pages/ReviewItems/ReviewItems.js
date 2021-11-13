@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
+import {  Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Rating from 'react-rating';
 
