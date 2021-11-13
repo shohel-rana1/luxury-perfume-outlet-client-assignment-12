@@ -4,11 +4,14 @@ import { Row } from 'react-bootstrap';
 // import usePerfumes from '../../../hooks/usePerfumes';
 import ExploreItem from '../ExploreItem/ExploreItem';
 import usePerfumes from '../../hooks/usePerfumes';
+import Navigation from '../Shared/Navigation/Navigation';
+import Footer from '../Shared/Footer/Footer';
 
 const Explore = () => {
     const [perfumes] = usePerfumes();
     return (
         <>
+        <Navigation></Navigation>
             <div className="backgrnd-img">
                 <div className="text-enter pt-5">
                     <h1 style={{ color: '#C09E6C' }} className="fs-1">Explore Our Perfumes</h1>
@@ -25,6 +28,7 @@ const Explore = () => {
                     </Row>
                 </div>
             </div>
+            <Footer></Footer>
         </>
     );
 };

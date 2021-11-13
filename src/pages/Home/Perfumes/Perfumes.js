@@ -13,7 +13,7 @@ const Perfumes = () => {
                     <h1 style={{ color: '#C09E6C' }} className="fs-1">FEATURED PRODUCTS</h1>
                     <h3 style={{ color: '#dbd0d0' }} className=" fs-3">Buy Now</h3>
                 </div>
-                <div className="backgrnd-img container px-4 p-md-5">
+                <div className="backgrnd-img container px-4 p-md-5 pb-5">
                     <Row xs={1} md={2} lg={3} xl={3} className="g-4">
                         {
                             perfumes.slice(0, 6).map(perfume => <Perfume

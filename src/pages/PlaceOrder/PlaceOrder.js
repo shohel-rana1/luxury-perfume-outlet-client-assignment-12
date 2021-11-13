@@ -12,7 +12,7 @@ const PlaceOrder = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
-        data.order_id = perfumeid;
+        data.booking_id = perfumeid;
         axios.post('http://localhost:5000/orders', data)
             .then(res => {
                 if (res.data.insertedId) {

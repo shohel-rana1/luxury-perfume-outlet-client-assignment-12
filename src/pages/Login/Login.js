@@ -3,6 +3,8 @@ import { Button, Spinner, Alert } from 'react-bootstrap';
 import React, { useState } from 'react';
 import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import Navigation from '../Shared/Navigation/Navigation';
+import Footer from '../Shared/Footer/Footer';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
@@ -28,7 +30,9 @@ const Login = () => {
         signInWithGoogle(location, history);
     }
     return (
-        <div className="backgrnd-img">
+        <>
+        <Navigation></Navigation>
+            <div className="backgrnd-img">
             <div className="container py-5 g-2">
                 <h2 className="text-muted pb-2">Login Please</h2>
                 <form onSubmit={handleLoginSubmit}>
@@ -71,6 +75,8 @@ const Login = () => {
                 <Button onClick={handleGoogleSignIn} variant="success">Google SignIn</Button>
             </div>
         </div>
+        <Footer></Footer>
+        </>
     );
 };
 

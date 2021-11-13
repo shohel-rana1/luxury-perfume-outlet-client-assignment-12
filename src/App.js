@@ -8,19 +8,19 @@ import Home from './pages/Home/Home/Home';
 import Navigation from './pages/Shared/Navigation/Navigation';
 import Explore from './pages/Explore/Explore';
 import PrivateRoute from './pages/PrivateRoute/PrivateRoute';
-import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
 import Login from './pages/Login/Login';
 import Footer from './pages/Shared/Footer/Footer';
 import Register from './pages/Login/Register/Register';
 import AuthProvider from './Context/AuthProvider';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
+import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
         <Router>
-          <Navigation></Navigation>
+          {/* <Navigation></Navigation> */}
           <Switch>
             <Route exact path="/">
               <Home />
@@ -31,7 +31,7 @@ function App() {
             <Route path="/explore">
               <Explore />
             </Route>
-            <PrivateRoute path="/explore">
+            <PrivateRoute path="/dashboard">
               <Dashboard />
             </PrivateRoute>
             <PrivateRoute path="/placeorder/:perfumeid">

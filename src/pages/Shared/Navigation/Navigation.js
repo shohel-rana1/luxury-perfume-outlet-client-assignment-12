@@ -25,9 +25,12 @@ const Navigation = () => {
                             </Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link className="nav-text" eventKey="3" as={Link} to="/dashboard">
-                                <span className="nav-text">Dashboard</span>
-                            </Nav.Link>
+                            {user?.email &&
+                                <Nav.Link className="nav-text" eventKey="3" as={Link} to="/dashboard">
+                                    <span className="nav-text">Dashboard</span>
+                                </Nav.Link>
+
+                            }
                         </Nav.Item>
                         <span className="userName"> {user?.displayName} </span>
                         <Nav.Item>
