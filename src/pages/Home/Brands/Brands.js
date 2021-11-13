@@ -13,7 +13,7 @@ const Brands = () => {
                     <h1 style={{ color: '#C09E6C' }} className="fs-1">Brands Collection</h1>
                     <h3 style={{ color: '#dbd0d0' }} className=" fs-3">The branded products we provide</h3>
                 </div>
-                <div className="backgrnd container-fluid px-4 pb-5 p-md-5">
+                <div style={{ backgroundColor: '#A5C4D9' }} className="backgrnd container-fluid px-4 pb-5 p-md-5">
                     <Row xs={1} md={4} lg={5} xl={5} className="g-4">
                         {
                             brands.map(brand => <BrandItem

@@ -10,7 +10,7 @@ const Navigation = () => {
     return (
         <Navbar collapseOnSelect expand="lg" sticky="top" bg="white">
             <div className="container mx-auto">
-                <Link className="navbar-brand" to="/home"><img className="logo" src={logo} alt="" /><span className="logo-text">Perfume</span></Link>
+                <Link className="navbar-brand" to="/home"><img className="logo" src={logo} alt="" /><span className="logo-text">Luxury Perfume Outlet</span></Link>
                 <Navbar.Toggle />
                 <Navbar.Collapse>
                     <Nav className="nav-bar">

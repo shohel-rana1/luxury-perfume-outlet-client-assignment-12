@@ -1,10 +1,8 @@
 import React from 'react';
 import { Col, Container, Nav, Row } from 'react-bootstrap';
-import Footer from '../../Shared/Footer/Footer';
 import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
 import MyOrders from '../MyOrders/MyOrders';
 import NewProduct from '../NewProduct/NewProduct';
-
 import {
     Switch,
     Route,
@@ -14,9 +12,14 @@ import {
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import Payment from '../Payment/Payment';
 import Review from '../Review/Review';
+import useAuth from '../../../hooks/useAuth';
+import AdminRoute from '../../AdminRoute/AdminRoute';
+import ManageProducts from '../ManageProducts/ManageProducts';
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
+    const { admin } = useAuth();
+
     return (
         <div>
             <Container>
@@ -29,13 +32,17 @@ const Dashboard = () => {
                             <Link eventKey="link-1" to={`${url}/payment`}><i className="fab fa-cc-amazon-pay"></i> Payment</Link>
                             <Link eventKey="link-1" to={`${url}/myorders`}><i className="fas fa-arrow-alt-circle-right"></i> My Orders</Link>
                             <Link eventKey="link-1" to={`${url}/review`}><i className="fas fa-star-half-alt"></i> Review</Link>
-                            <Link eventKey="link-1" to={`${url}/manageallorders`}><i className="fas fa-tasks"></i> Manage All Orders</Link>
-                            <Link eventKey="link-1" to={`${url}/newproduct`}><i className="fas fa-plus-circle"></i> Add a product</Link>
-                            <Link eventKey="link-1" to={`${url}/makeadmin`}><i className="fas fa-user-lock"></i> Make an admin</Link>
-                            <Link eventKey="link-1" to={`${url}/manageproducts`}><i className="fas fa-tasks"></i> Manage Products</Link>
+                            {admin &&
+                                <>
+                                    <Link eventKey="link-1" to={`${url}/manageallorders`}><i className="fas fa-tasks"></i> Manage All Orders</Link>
+                                    <Link eventKey="link-1" to={`${url}/newproduct`}><i className="fas fa-plus-circle"></i> Add a product</Link>
+                                    <Link eventKey="link-1" to={`${url}/makeadmin`}><i className="fas fa-user-lock"></i> Make an admin</Link>
+                                    <Link eventKey="link-1" to={`${url}/manageproducts`}><i className="fas fa-tasks"></i> Manage Products</Link>
+                                </>
+                            }
                             <Link eventKey="link-2" to={`${url}/logout`}><i className="fas fa-arrow-alt-circle-right"></i> Logout</Link>
                         </Nav>
-                        
+
 
                     </Col>
                     <Col xs={12} md={9} style={{ backgroundColor: '#F1F4F5' }}>
@@ -44,7 +51,7 @@ const Dashboard = () => {
                             {/* <Route exact path={path}>
                                 <Dashboard></Dashboard>
                             </Route> */}
-                            
+
                             {/* <Route exact path={`${path}`}>
                                 <Dashboard></Dashboard>
                             </Route> */}
@@ -57,18 +64,18 @@ const Dashboard = () => {
                             <Route path={`${path}/review`}>
                                 <Review></Review>
                             </Route>
-                            <Route path={`${path}/makeAdmin`}>
+                            <AdminRoute path={`${path}/makeAdmin`}>
                                 <MakeAdmin></MakeAdmin>
-                            </Route>
-                            <Route path={`${path}/manageallorders`}>
+                            </AdminRoute>
+                            <AdminRoute path={`${path}/manageallorders`}>
                                 <ManageAllOrders></ManageAllOrders>
-                            </Route>
-                            <Route path={`${path}/newproduct`}>
+                            </AdminRoute>
+                            <AdminRoute path={`${path}/newproduct`}>
                                 <NewProduct></NewProduct>
-                            </Route>
-                            <Route path={`${path}/manageproducts`}>
-                                <NewProduct></NewProduct>
-                            </Route>
+                            </AdminRoute>
+                            <AdminRoute path={`${path}/manageproducts`}>
+                                <ManageProducts></ManageProducts>
+                            </AdminRoute>
                         </Switch>
                         {/* <Payment></Payment>
                         <MyOrders></MyOrders>
