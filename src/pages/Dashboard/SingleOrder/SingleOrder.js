@@ -1,12 +1,13 @@
 // import { Table } from 'react-bootstrap';
-import { useState } from 'react';
 import { Table } from 'react-bootstrap';
 import usePerfumes from '../../../hooks/usePerfumes';
 const SingleOrer = ({ item }) => {
     const [perfumes] = usePerfumes();
-    const { address, city, phone, email, name, booking_id, status } = item;
+    const { address,phone,name, booking_id, status } = item;
     console.log(booking_id)
     const myOrder = perfumes.find(perfume => perfume._id === booking_id);
+
+    
     //delete an user
     const handleDelete = id => {
         id = booking_id;

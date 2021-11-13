@@ -4,7 +4,7 @@ import usePerfumes from '../../../hooks/usePerfumes';
 
 const AllOrderManage = ({ order }) => {
     const [perfumes] = usePerfumes();
-    const { name, address, phone, city, booking_id, status } = order;
+    const { name, address, phone,booking_id, status } = order;
     const [orders, setOrders] = useState({});
 
     const myPerfume = perfumes.find(perfume => perfume._id === booking_id);

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button, Alert } from 'react-bootstrap';
+import { Button, Alert } from 'react-bootstrap';
 
 const MakeAdmin = () => {
     const [email, setEmail] = useState('');

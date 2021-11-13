@@ -1,10 +1,9 @@
 import React from 'react';
 import {  Col } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Rating from 'react-rating';
 
 const ReviewItems = ({ review }) => {
-    const { name, email, text, ratings } = review;
+    const { name,text, ratings } = review;
     return (
         <div>
             <Col xs={12} md={6} style={{ border: '2px solid gray', backgroundColor: '#A5C4D9' }} className="w-100 text-left p-5">
