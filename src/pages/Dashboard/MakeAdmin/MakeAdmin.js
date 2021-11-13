@@ -9,7 +9,7 @@ const MakeAdmin = () => {
     }
     const handleSubmit = e => {
         const user = { email };
-        fetch('http://localhost:5000/users/admin', {
+        fetch('https://agile-headland-59879.herokuapp.com/users/admin', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

@@ -3,17 +3,16 @@ import { Table } from 'react-bootstrap';
 import usePerfumes from '../../../hooks/usePerfumes';
 const SingleOrer = ({ item }) => {
     const [perfumes] = usePerfumes();
-    const { address,phone,name, booking_id, status } = item;
+    const { address, phone, name, booking_id, status } = item;
     console.log(booking_id)
     const myOrder = perfumes.find(perfume => perfume._id === booking_id);
 
-    
+
     //delete an user
     const handleDelete = id => {
-        id = booking_id;
         const proceed = window.confirm('Are you Sure to Delete?');
         if (proceed) {
-            const url = `http://localhost:5000/orders/${booking_id}`;
+            const url = `https://agile-headland-59879.herokuapp.com/orders/${id}`;
 
             fetch(url, {
                 method: 'DELETE'
@@ -55,7 +54,7 @@ const SingleOrer = ({ item }) => {
                                 <td >{address} </td>
                                 <td >{phone} </td>
                                 <td >{status} </td>
-                                <td ><button onClick={ ()=>handleDelete(booking_id)}>Delete</button></td>
+                                <td ><button onClick={() => handleDelete(booking_id)}>Delete</button></td>
                             </tr>
                         </tbody>
                     </Table>

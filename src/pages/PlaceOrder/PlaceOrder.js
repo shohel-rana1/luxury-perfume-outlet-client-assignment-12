@@ -15,7 +15,7 @@ const PlaceOrder = () => {
 
     const onSubmit = data => {
         data.booking_id = perfumeid;
-        axios.post('http://localhost:5000/orders', data)
+        axios.post('https://agile-headland-59879.herokuapp.com/orders', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Added successfully')
@@ -25,7 +25,7 @@ const PlaceOrder = () => {
     };
 
     useEffect(() => {
-        fetch(`http://localhost:5000/perfumes/${perfumeid}`)
+        fetch(`https://agile-headland-59879.herokuapp.com/perfumes/${perfumeid}`)
             .then(res => res.json())
             .then(data => setPerfume(data));
     }, [perfumeid])

@@ -8,7 +8,7 @@ const Review = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
-        axios.post('http://localhost:5000/reviews', data)
+        axios.post('https://agile-headland-59879.herokuapp.com/reviews', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Added successfully')
@@ -24,7 +24,7 @@ const Review = () => {
                 <br />
                 <input className="w-50" {...register("email", { required: true, maxLength: 20 })} value={user.email} />
                 <br />
-                <textarea className="w-50" {...register("text") } placeholder="Review Here" />
+                <textarea className="w-50" {...register("text")} placeholder="Review Here" />
                 <br />
                 <input className="w-50" type="number" {...register("ratings")} placeholder="Ratings" />
                 <br />

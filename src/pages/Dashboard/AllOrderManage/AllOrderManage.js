@@ -4,7 +4,7 @@ import usePerfumes from '../../../hooks/usePerfumes';
 
 const AllOrderManage = ({ order }) => {
     const [perfumes] = usePerfumes();
-    const { name, address, phone,booking_id, status } = order;
+    const { name, address, phone, booking_id, status } = order;
     const [orders, setOrders] = useState({});
 
     const myPerfume = perfumes.find(perfume => perfume._id === booking_id);
@@ -14,7 +14,7 @@ const AllOrderManage = ({ order }) => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you Sure to Delete?');
         if (proceed) {
-            const url = `http://localhost:5000/orders/${id}`;
+            const url = `https://agile-headland-59879.herokuapp.com/orders/${id}`;
 
             fetch(url, {
                 method: 'DELETE'
@@ -33,7 +33,7 @@ const AllOrderManage = ({ order }) => {
     //update status
     const handleUpdate = id => {
         const status = ['Shipped'];
-        fetch(`http://localhost:5000/orders/${id}`, {
+        fetch(`https://agile-headland-59879.herokuapp.com/orders/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

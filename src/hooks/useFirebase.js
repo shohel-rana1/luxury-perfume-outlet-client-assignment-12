@@ -11,7 +11,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
-    const [admin,setAdmin] = useState(false);
+    const [admin, setAdmin] = useState(false);
 
     // const location = useLocation();
     // const history = useHistory();
@@ -91,13 +91,13 @@ const useFirebase = () => {
         return () => unsubscribed;
     }, [auth])
 
-    useEffect( ()=>{
-        fetch(`http://localhost:5000/users/${user.email}`)
-        .then(res=>res.json())
-        .then(data=>{
-            setAdmin(data.admin)
-        })
-    },[user.email])
+    useEffect(() => {
+        fetch(`https://agile-headland-59879.herokuapp.com/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => {
+                setAdmin(data.admin)
+            })
+    }, [user.email])
 
     const logout = () => {
         setIsLoading(true);
@@ -111,7 +111,7 @@ const useFirebase = () => {
     //save user
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('http://localhost:5000/users', {
+        fetch('https://agile-headland-59879.herokuapp.com/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'

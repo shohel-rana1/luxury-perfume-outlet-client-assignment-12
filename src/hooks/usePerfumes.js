@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 const usePerfumes = () => {
     const [perfumes, setPerfumes] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/perfumes')
+        fetch('https://agile-headland-59879.herokuapp.com/perfumes')
             .then(res => res.json())
             .then(data => setPerfumes(data))
     }, []);

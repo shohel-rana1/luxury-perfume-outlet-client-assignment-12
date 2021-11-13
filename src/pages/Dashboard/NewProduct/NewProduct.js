@@ -7,7 +7,7 @@ const NewProduct = () => {
 
     const onSubmit = data => {
         console.log(data);
-        axios.post('http://localhost:5000/perfumes', data)
+        axios.post('https://agile-headland-59879.herokuapp.com/perfumes', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Added successfully')
