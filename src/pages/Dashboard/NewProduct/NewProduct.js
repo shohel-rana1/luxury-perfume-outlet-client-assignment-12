@@ -16,7 +16,7 @@ const NewProduct = () => {
             })
     };
     return (
-        <div className="">
+        <div className="mb-5">
             <h2 className="py-5">Add a Product</h2>
             <div className="add-place py-3 mb-3 mx-auto backgrnd-img">
 

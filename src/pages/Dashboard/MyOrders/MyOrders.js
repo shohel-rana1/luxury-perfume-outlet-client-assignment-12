@@ -15,8 +15,8 @@ const MyOrders = () => {
     const MyItems = orders.filter(order => order.email === user.email)
 
     return (
-        <div>
-            <h1 className="py-5">My Orders</h1>
+        <div className="my-5">
+            <h1 className="pb-5">My Orders</h1>
             <div className="backgrnd-img py-3">
                 {
                     MyItems.map(item => <SingleOrer

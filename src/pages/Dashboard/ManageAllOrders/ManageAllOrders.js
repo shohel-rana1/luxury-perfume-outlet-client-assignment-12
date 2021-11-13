@@ -11,7 +11,7 @@ const ManageAllOrders = () => {
     }, [])
 
     return (
-        <div>
+        <div className="my-5">
             <h2 className="py-5">Manage All Available Orders </h2>
             <div className="py-3">
 
