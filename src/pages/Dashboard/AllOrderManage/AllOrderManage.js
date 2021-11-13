@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { Table } from 'react-bootstrap';
 import usePerfumes from '../../../hooks/usePerfumes';
 
-const AllOrderManage = ({ order, handleUpdate }) => {
+const AllOrderManage = ({ order }) => {
     const [perfumes] = usePerfumes();
-    const { name, address, city, booking_id, status } = order;
+    const { name, address, phone, city, booking_id, status } = order;
     const [orders, setOrders] = useState({});
 
     const myPerfume = perfumes.find(perfume => perfume._id === booking_id);
@@ -13,7 +14,7 @@ const AllOrderManage = ({ order, handleUpdate }) => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you Sure to Delete?');
         if (proceed) {
-            const url = `https://calm-cliffs-67341.herokuapp.com/orders/${id}`;
+            const url = `http://localhost:5000/orders/${id}`;
 
             fetch(url, {
                 method: 'DELETE'
@@ -27,28 +28,51 @@ const AllOrderManage = ({ order, handleUpdate }) => {
                     }
                 })
         }
-
     }
+
+    //update status
+    const handleUpdate = id => {
+        const status = ['Shipped'];
+        fetch(`http://localhost:5000/orders/${id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(status)
+
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+    }
+
     return (
-        <div className=" container" >
-            <div className="row">
-                <div className="col-md-4 text-left">
-                    <img src={myPerfume?.img} className=" h-50 w-100" alt="..." />
-                    <h3 className="">Name: {myPerfume?.name}</h3>
-                    <h5 className="">Brand: {myPerfume?.brand}</h5>
-                </div>
-                <div className="col-md-8">
-                    <div className="text-left">
-                        <h3 className="">Name: {name}</h3>
-                        <h5 className="">Address: {address}</h5>
-                        <h5 className="">City: {city}</h5>
-                        <h5 className="">Status: {status}</h5>
-                        <button onClick={() => handleDelete(order._id)}>Delete</button>
-                        <button onClick={() => handleUpdate(order._id)}>Update Status</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <Table responsive className="mb-3 py-3 backgrnd-img">
+            <thead>
+                <tr>
+                    <th>Product Id</th>
+                    <th>Product </th>
+                    <th>Customer</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Status</th>
+                    <th>Delete</th>
+                    <th>Update</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{booking_id}</td>
+                    <td >{myPerfume?.name}</td>
+                    <td >{name} </td>
+                    <td >{address} </td>
+                    <td >{phone} </td>
+                    <td >{status} </td>
+                    <td ><button onClick={() => handleDelete(order._id)}>Delete</button></td>
+                    <td ><button onClick={() => handleUpdate(order._id)}>Update</button></td>
+                </tr>
+            </tbody>
+        </Table>
     );
 };
 

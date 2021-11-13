@@ -44,7 +44,7 @@ function App() {
               <Register />
             </Route>
           </Switch>
-          <Footer></Footer>
+          {/* <Footer></Footer> */}
         </Router>
       </AuthProvider>
     </div>

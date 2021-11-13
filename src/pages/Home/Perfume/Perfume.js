@@ -8,7 +8,7 @@ const Perfume = ({ perfume }) => {
     return (
         <Col className=" mt-5 ">
             <Card className="card">
-                <div className="img-wrapper"><Card.Img className="img card img-fluid inner-img" variant="top" src={img} /></div>
+                <div className="img-wrapper"><Card.Img className="img card inner-img" variant="top" src={img} /></div>
                 <Card.Body>
                     <Card.Title className="name cardText">Name: {name}</Card.Title>
                     <Card.Title className="name cardText">Brand: {brand}</Card.Title>

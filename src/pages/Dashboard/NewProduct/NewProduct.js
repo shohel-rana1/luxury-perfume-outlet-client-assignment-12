@@ -16,9 +16,10 @@ const NewProduct = () => {
             })
     };
     return (
-        <div className="backgrnd-img">
-            <div className="add-place mx-auto">
-                <h2>Add a Product</h2>
+        <div className="">
+            <h2 className="py-5">Add a Product</h2>
+            <div className="add-place py-3 mb-3 mx-auto backgrnd-img">
+
                 <form onSubmit={handleSubmit(onSubmit)} className="backgrnd-img">
                     <input {...register("name", { required: true, maxLength: 20 })} placeholder="Name" />
                     <input {...register("brand", { required: true, maxLength: 20 })} placeholder="Brand" />

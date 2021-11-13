@@ -7,7 +7,7 @@ const BrandItem = ({ brand }) => {
     return (
         <Col className=" mt-5 ">
             <Card className="card">
-                <div className="img-wrapper"><Card.Img style={{ height: '200px', width: '300px' }} className="img card img-fluid inner-img shadow " variant="top" src={image} /></div>
+                <div className="img-wrapper"><Card.Img style={{ height: '200px', width: '300px' }} className="img card inner-img shadow " variant="top" src={image} /></div>
             </Card>
         </Col>
     );
