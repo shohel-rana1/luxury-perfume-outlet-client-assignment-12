@@ -11,10 +11,10 @@ const Explore = () => {
     const [perfumes] = usePerfumes();
     return (
         <>
-        <Navigation></Navigation>
+            <Navigation></Navigation>
             <div className="backgrnd-img">
                 <div className="text-enter pt-5">
-                    <h1 style={{ color: '#C09E6C' }} className="fs-1">Explore Our Perfumes</h1>
+                    <h1 style={{ color: '#C09E6C' }} className="fs-1">Explore  Our All Perfumes</h1>
                     <h3 style={{ color: '#dbd0d0' }} className=" fs-3">Buy Now</h3>
                 </div>
                 <div className="backgrnd-img container-fluid px-4 p-md-5">
